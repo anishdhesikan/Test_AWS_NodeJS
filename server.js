@@ -36,6 +36,10 @@ router.get('/', function (req, res) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
 
+router.get('/billboard', function (req, res) {
+    res.json({ billboard_id: 1 });
+});
+
 
 
 router.route('/products')
