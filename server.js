@@ -6,7 +6,7 @@
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
 
-var Bear = require('./app/models/product');
+var Product = require('./app/models/product');
 
 // call the packages we need
 var express = require('express');        // call express
@@ -43,7 +43,7 @@ router.route('/products')
     // create a product (accessed at POST http://localhost:8080/api/products)
     .post(function(req, res) {
         
-        var product = new Bear();      // create a new instance of the Bear model
+        var product = new Product();      // create a new instance of the Product model
         product.name = req.body.name;  // set the products name (comes from the request)
 
         // save the product and check for errors
@@ -58,7 +58,7 @@ router.route('/products')
 
     // get all the products (accessed at GET http://localhost:8080/api/products)
     .get(function(req, res) {
-        Bear.find(function(err, products) {
+        Product.find(function(err, products) {
             if (err)
                 res.send(err);
 
@@ -74,7 +74,7 @@ router.route('/products/:product_id')
 
     // get the product with that id (accessed at GET http://localhost:8080/api/products/:product_id)
     .get(function(req, res) {
-        Bear.findById(req.params.product_id, function (err, product) {
+        Product.findById(req.params.product_id, function (err, product) {
             if (err)
                 res.send(err);
             res.json(product);
@@ -87,7 +87,7 @@ router.route('/change_billboard/:billboard_id')
 
     // get the product with that id (accessed at GET http://localhost:8080/api/products/:product_id)
     .get(function (req, res) {
-        Bear.findById(10, function (err, product) {
+        Product.findById(10, function (err, product) {
             if (err)
                 res.send(err);
             product.billboard_id = req.params.billboard_id;
@@ -97,7 +97,7 @@ router.route('/change_billboard/:billboard_id')
                 if (err)
                     res.send(err);
 
-                res.json({ message: 'Bear updated!' });
+                res.json({ message: 'Product updated!' });
             });
         });
     })
