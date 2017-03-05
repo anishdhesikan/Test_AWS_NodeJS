@@ -37,7 +37,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/billboard', function (req, res) {
-    res.json({ billboard_id: 0 });
+    res.json({ billboard_id: 1 });
 });
 
 
