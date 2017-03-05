@@ -37,28 +37,12 @@ router.get('/', function (req, res) {
 });
 
 router.get('/billboard', function (req, res) {
-    res.json({ billboard_id: 0 });
+    res.json({ billboard_id: 2 });
 });
 
 
 
 router.route('/products')
-
-    // create a product (accessed at POST http://localhost:8080/api/products)
-    //.post(function(req, res) {
-        
-    //    var product = new Product();      // create a new instance of the Product model
-    //    product.name = req.body.name;  // set the products name (comes from the request)
-
-    //    // save the product and check for errors
-    //    product.save(function(err) {
-    //        if (err)
-    //            res.send(err);
-
-    //        res.json({ message: 'Product created!' });
-    //    });
-        
-    //})
 
     // get all the products (accessed at GET http://localhost:8080/api/products)
     .get(function(req, res) {
