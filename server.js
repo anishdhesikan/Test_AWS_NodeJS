@@ -4,7 +4,7 @@
 // =============================================================================
 
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+mongoose.connect('mongodb://localhost/myapp'); // connect to our database
 
 var Product = require('./app/models/product');
 
@@ -41,20 +41,20 @@ router.get('/', function (req, res) {
 router.route('/products')
 
     // create a product (accessed at POST http://localhost:8080/api/products)
-    .post(function(req, res) {
+    //.post(function(req, res) {
         
-        var product = new Product();      // create a new instance of the Product model
-        product.name = req.body.name;  // set the products name (comes from the request)
+    //    var product = new Product();      // create a new instance of the Product model
+    //    product.name = req.body.name;  // set the products name (comes from the request)
 
-        // save the product and check for errors
-        product.save(function(err) {
-            if (err)
-                res.send(err);
+    //    // save the product and check for errors
+    //    product.save(function(err) {
+    //        if (err)
+    //            res.send(err);
 
-            res.json({ message: 'Product created!' });
-        });
+    //        res.json({ message: 'Product created!' });
+    //    });
         
-    })
+    //})
 
     // get all the products (accessed at GET http://localhost:8080/api/products)
     .get(function(req, res) {
