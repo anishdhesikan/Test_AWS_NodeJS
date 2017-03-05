@@ -4,7 +4,7 @@
 // =============================================================================
 
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/test'); // connect to our database
+mongoose.connect('mongodb://127.0.0.1/myapp'); // connect to our database
 
 var Product = require('./app/models/product');
 
