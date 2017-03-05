@@ -92,21 +92,6 @@ router.route('/change_billboard/:billboard_id')
                 res.send(err);
             product.billboard_id = req.params.billboard_id;
 
-        });
-    })
-
-
-    // update the product with this id (accessed at PUT http://localhost:8080/api/products/:product_id)
-    .put(function (req, res) {
-
-        // use our product model to find the product we want
-        Bear.findById(req.params.product_id, function (err, product) {
-
-            if (err)
-                res.send(err);
-
-            product.name = req.body.name;  // update the products info
-
             // save the product
             product.save(function (err) {
                 if (err)
@@ -114,9 +99,8 @@ router.route('/change_billboard/:billboard_id')
 
                 res.json({ message: 'Bear updated!' });
             });
-
         });
-    });
+    })
 
 // more routes for our API will happen here
 
